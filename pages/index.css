@@ -4,9 +4,11 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/logo/logo.css);
+@import url(../blocks/footer/footer.css);
 
 
 @import url(../blocks/header/__line/header__line.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
 
 
 .border {
