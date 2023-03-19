@@ -1,0 +1,8 @@
+.profile__ava {
+  max-width: 120px;
+  max-height: 120px;
+  background-color: #C4C4C4;
+  border-radius: 100px;
+  object-fit: cover;
+  overflow: hidden;
+}

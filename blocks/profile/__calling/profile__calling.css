@@ -1,0 +1,12 @@
+.profile__calling {
+  margin: 7px 0 0 0;
+  padding: 0;
+  font: 400 18px/1.2 'Inter', sans-serif;
+  color: #fff;
+}
+
+@media (max-width: 709px) {
+  .profile__calling {
+    font-size: 14px;
+  }
+}

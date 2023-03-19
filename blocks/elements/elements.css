@@ -1,7 +1,7 @@
 .elements {
   max-width: 880px;
   margin: 0 auto;
-  padding-top: 51px;
+  padding-top: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-template-rows: repeat(auto-fit, 362px);
