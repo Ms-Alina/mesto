@@ -2,7 +2,7 @@
   max-width: 880px;
   margin: 0 auto;
   padding-top: 66px;
-  padding-bottom: 60px;
+  padding-bottom: 56px;
 }
 
 @media (max-width: 909px) {
@@ -14,6 +14,6 @@
 @media (max-width: 499px) {
   .footer {
     padding-top: 48px;
-    padding-bottom: 36px;
+    padding-bottom: 33px;
   }
 }

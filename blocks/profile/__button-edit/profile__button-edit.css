@@ -1,5 +1,8 @@
 .profile__button-edit {
   display: inline-block;
+  position: absolute;
+  top: 42px;
+  right: -43px;
   box-sizing: border-box;
   width: 24px;
   height: 24px;
@@ -22,8 +25,7 @@
   .profile__button-edit {
     width: 18px;
     height: 18px;
-    position: absolute;
-    top: 8px;
+    top: 33px;
     right: -28px;
   }
 }
