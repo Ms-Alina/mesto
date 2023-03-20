@@ -8,6 +8,6 @@
 @media (max-width: 709px) {
   .profile__name {
     font-size: 27px;
-    letter-spacing: 32.67px;
+    line-height: 1.21;
   }
 }

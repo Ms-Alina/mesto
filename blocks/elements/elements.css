@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-@media (max-width: 879px) {
+@media (max-width: 899px) {
   .elements {
     max-width: 581px;
   }
