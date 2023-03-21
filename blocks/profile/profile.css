@@ -13,7 +13,7 @@
   }
 }
 
-@media (max-width: 749px) {
+@media (max-width: 849px) {
   .profile {
     max-width: calc(100% - 2*19px);
     padding-top: 42px;

@@ -5,6 +5,11 @@ const nameInput = editProfilePopup.querySelector('.popup__input_info_name');
 const nameProfile = document.querySelector('.profile__name');
 const callingInput = editProfilePopup.querySelector('.popup__input_info_calling');
 const callingProfile = document.querySelector('.profile__calling');
+const editProfileSubmitButton = editProfilePopup.querySelector('.popup__button-submit');
+
+function closePopupForm() {
+  editProfilePopup.classList.remove('popup_opened');
+}
 
 editProfileEditButton.addEventListener('click', function() {
   editProfilePopup.classList.add('popup_opened');
@@ -13,17 +18,12 @@ editProfileEditButton.addEventListener('click', function() {
 });
 
 editProfilePopupCloseButton.addEventListener('click', function() {
-  editProfilePopup.classList.remove('popup_opened');
+  closePopupForm();
 });
 
-editProfilePopup.addEventListener('submit', function(event) {
-  event.preventDefault();
+editProfilePopup.addEventListener('submit', function(editProfileSubmitButton) {
+  editProfileSubmitButton.preventDefault();
   nameProfile.textContent = nameInput.value;
-  editProfilePopup.classList.remove('popup_opened');
-})
-
-editProfilePopup.addEventListener('submit', function(event) {
-  event.preventDefault();
   callingProfile.textContent = callingInput.value;
-  editProfilePopup.classList.remove('popup_opened');
-})
+  closePopupForm();
+});

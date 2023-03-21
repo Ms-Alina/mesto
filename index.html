@@ -5,12 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pages/index.css">
-  <title>Mestro</title>
+  <title>Местро</title>
 </head>
 <body class="page">
   <header class="header">
-    <img src="images/Vector.svg" alt="Маэстро Россия" class="logo">
-    <div class="header__line"></div>
+    <img src="images/Vector.svg" alt="Местро Россия" class="logo">
   </header>
   <main>
     <section class="profile">
@@ -18,18 +17,18 @@
         <img src="images/ava.png" alt="Персональная фотография" class="profile__ava">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <div class="profile__button-edit"></div>
+          <div role="button" aria-label="Редактировать профиль" class="profile__button-edit"></div>
           <p class="profile__calling">Исследователь океана</p>
         </div>
       </div>
-      <div role="button" class="profile__button-add"></div>
+      <div role="button" aria-label="Добавить" class="profile__button-add"></div>
     </section>
     <section class="elements">
       <article class="element">
         <img src="images/kirill-pershin-1088404-unsplash.png" alt="Крепость на фоне леса" class="element__img">
         <div class="element__description">
           <h2 class="element__heading">Карачаевск</h2>
-          <div class="element__like"></div>
+          <div role="button" aria-label="Нравиться" class="element__like"></div>
         </div>
       </article>
       <article class="element">
@@ -72,15 +71,17 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <section class="popup popup_type_edit-profile">
-    <form class="popup__container">
-       <h2 class="popup__heading">Редактировать профиль</h2>
-       <input type="text" name="name" value="" autocomplete="off" class="popup__input popup__input_info_name">
-       <input type="text" name="calling" value="" autocomplete="off" class="popup__input popup__input_info_calling">
-       <button type="submit" class="popup__button-submit">Сохранить</button>
-       <div role="button" class="popup__close-icon"></div>
-    </form>
-  </section>
-  <script src="index.js"></script>
+  <div class="popup popup_type_edit-profile">
+    <div class="popup__container">
+      <h2 class="popup__heading">Редактировать профиль</h2>
+      <form name="formEditProfile" class="popup__form">
+        <input type="text" name="name" value="" autocomplete="off" required class="popup__input popup__input_info_name">
+        <input type="text" name="calling" value="" autocomplete="off" required class="popup__input popup__input_info_calling">
+        <button type="submit" class="popup__button-submit">Сохранить</button>
+      </form>
+      <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
+    </div>
+  </div>
+  <script src="scripts/index.js"></script>
 </body>
 </html>
