@@ -5,7 +5,7 @@ const nameInput = editProfilePopup.querySelector('.popup__input_info_name');
 const nameProfile = document.querySelector('.profile__name');
 const callingInput = editProfilePopup.querySelector('.popup__input_info_calling');
 const callingProfile = document.querySelector('.profile__calling');
-const editProfileSubmitButton = editProfilePopup.querySelector('.popup__button-submit');
+const editProfilePopupForm = editProfilePopup.querySelector('.popup__form');
 
 function closePopupForm() {
   editProfilePopup.classList.remove('popup_opened');
@@ -21,8 +21,8 @@ editProfilePopupCloseButton.addEventListener('click', function() {
   closePopupForm();
 });
 
-editProfilePopup.addEventListener('submit', function(editProfileSubmitButton) {
-  editProfileSubmitButton.preventDefault();
+editProfilePopupForm.addEventListener('submit', function(event) {
+  event.preventDefault();
   nameProfile.textContent = nameInput.value;
   callingProfile.textContent = callingInput.value;
   closePopupForm();
