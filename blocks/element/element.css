@@ -6,6 +6,7 @@
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
 @media (max-width: 580px) {

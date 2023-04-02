@@ -10,4 +10,8 @@
   z-index: 100;
   background-color: rgba(0, 0, 0, .5);
   visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 1s, opacity 0.4s linear;
+  -o-transition: visibility 1s, opacity 0.4s linear;
+  transition: visibility 1s, opacity 0.4s linear;
 }
