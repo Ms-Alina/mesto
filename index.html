@@ -24,54 +24,6 @@
       <div role="button" aria-label="Добавить" class="profile__button-add"></div>
     </section>
     <section class="elements">
-      <!--<article class="element">
-        <img src="images/kirill-pershin-1088404-unsplash.png" alt="Крепость на фоне леса" class="element__img">
-        <div class="element__description">
-          <h2 class="element__heading">Карачаевск</h2>
-          <div role="button" aria-label="Нравиться" class="element__like"></div>
-        </div>
-        <div role="button" aria-label="Удалить" class="element__button-trash"></div>
-      </article>
-      <article class="element">
-        <img src="images/kirill-pershin-1404681-unsplash.png" alt="Гора на закате" class="element__img">
-        <div class="element__description">
-          <h2 class="element__heading">Гора Эльбрус</h2>
-          <div role="button" aria-label="Нравиться" class="element__like"></div>
-        </div>
-        <div role="button" aria-label="Удалить" class="element__button-trash"></div>
-      </article>
-      <article class="element">
-        <img src="images/kirill-pershin-1556355-unsplash.png" alt="Снежная гора" class="element__img">
-        <div class="element__description">
-          <h2 class="element__heading">Домбай</h2>
-          <div role="button" aria-label="Нравиться" class="element__like"></div>
-        </div>
-        <div role="button" aria-label="Удалить" class="element__button-trash"></div>
-      </article>
-      <article class="element">
-        <img src="images/kirill-pershin-1404681-unsplash.png" alt="Гора на закате" class="element__img">
-        <div class="element__description">
-          <h2 class="element__heading">Гора Эльбрус</h2>
-          <div role="button" aria-label="Нравиться" class="element__like"></div>
-        </div>
-        <div role="button" aria-label="Удалить" class="element__button-trash"></div>
-      </article>
-      <article class="element">
-        <img src="images/kirill-pershin-1556355-unsplash.png" alt="Снежная гора" class="element__img">
-        <div class="element__description">
-          <h2 class="element__heading">Домбай</h2>
-          <div role="button" aria-label="Нравиться" class="element__like"></div>
-        </div>
-        <div role="button" aria-label="Удалить" class="element__button-trash"></div>
-      </article>
-      <article class="element">
-        <img src="images/kirill-pershin-1088404-unsplash.png" alt="Крепость на фоне леса" class="element__img">
-        <div class="element__description">
-          <h2 class="element__heading">Карачаево-Черкессия</h2>
-          <div role="button" aria-label="Нравиться" class="element__like"></div>
-        </div>
-        <div role="button" aria-label="Удалить" class="element__button-trash"></div>
-      </article> -->
     </section>
   </main>
   <footer class="footer">
@@ -81,8 +33,8 @@
     <div class="popup__container">
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form name="formEditProfile" class="popup__form">
-        <input type="text" name="name" value="" autocomplete="off" required class="popup__input popup__input_info_name">
-        <input type="text" name="calling" value="" autocomplete="off" required class="popup__input popup__input_info_calling">
+        <input type="text" name="name" autocomplete="off" placeholder="Имя" required class="popup__input popup__input_info_name">
+        <input type="text" name="calling" autocomplete="off" placeholder="Род деятельности" required class="popup__input popup__input_info_calling">
         <button type="submit" class="popup__button-submit">Сохранить</button>
       </form>
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
@@ -92,8 +44,8 @@
     <div class="popup__container">
       <h2 class="popup__heading">Новое место</h2>
       <form name="formAddCards" class="popup__form">
-        <input type="text" name="name" value="" autocomplete="off" placeholder="Название" required class="popup__input popup__input_info_heading-card">
-        <input type="text" name="calling" value="" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
+        <input type="text" name="name" autocomplete="off" placeholder="Название" required class="popup__input popup__input_info_heading-card">
+        <input type="url" name="calling" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
         <button type="submit" class="popup__button-submit">Создать</button>
       </form>
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
@@ -116,6 +68,6 @@
       <h2 class="popup__heading-img"></h2>
     </div>
   </div>
-  <script src="scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
