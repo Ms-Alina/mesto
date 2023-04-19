@@ -32,10 +32,12 @@
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
       <h2 class="popup__heading">Редактировать профиль</h2>
-      <form name="formEditProfile" class="popup__form">
-        <input type="text" name="name" autocomplete="off" placeholder="Имя" required class="popup__input popup__input_info_name">
-        <input type="text" name="calling" autocomplete="off" placeholder="Род деятельности" required class="popup__input popup__input_info_calling">
-        <button type="submit" class="popup__button-submit">Сохранить</button>
+      <form name="formEditProfile" class="popup__form" novalidate>
+        <input id="nameProfile-input" type="text" name="nameProfile" autocomplete="off" placeholder="Имя" required minlength="2" maxlength="40" class="popup__input popup__input_info_name">
+        <span class="popup__input-error nameProfile-input-error"></span>
+        <input id="callingProfile-input" type="text" name="callingProfile" autocomplete="off" placeholder="Род деятельности" required minlength="2" maxlength="200" class="popup__input popup__input_info_calling">
+        <span class="popup__input-error callingProfile-input-error"></span>
+        <button type="submit" class="popup__button-submit" disabled>Сохранить</button>
       </form>
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
     </div>
@@ -43,10 +45,12 @@
   <div class="popup popup_type_add-card">
     <div class="popup__container">
       <h2 class="popup__heading">Новое место</h2>
-      <form name="formAddCards" class="popup__form">
-        <input type="text" name="name" autocomplete="off" placeholder="Название" required class="popup__input popup__input_info_heading-card">
-        <input type="url" name="calling" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
-        <button type="submit" class="popup__button-submit">Создать</button>
+      <form name="formAddCards" class="popup__form" novalidate>
+        <input id="nameCard-input" type="text" name="nameCard" autocomplete="off" placeholder="Название" required minlength="2" maxlength="30" class="popup__input popup__input_info_heading-card">
+        <span class="popup__input-error nameCard-input-error"></span>
+        <input id="callingCard-input" type="url" name="callingCard" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
+        <span class="popup__input-error callingCard-input-error"></span>
+        <button type="submit" class="popup__button-submit" disabled>Создать</button>
       </form>
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
     </div>
@@ -69,5 +73,6 @@
     </div>
   </div>
   <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/validate.js"></script>
 </body>
 </html>

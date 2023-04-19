@@ -12,10 +12,16 @@ const editProfilePopupForm = editProfilePopup.querySelector('.popup__form');
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
+
+  document.addEventListener('keydown', closePopupByEsc);
+  document.addEventListener('mousedown', closePopupClickSpaceAround);
 };
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+
+  document.removeEventListener('keydown', closePopupByEsc);
+  document.removeEventListener('mousedown', closePopupClickSpaceAround);
 };
 
 editProfileEditButton.addEventListener('click', () => {
@@ -122,3 +128,20 @@ editElementsPopupForm.addEventListener('submit', addNewCard);
 editElementsPopupCloseButton.addEventListener('click', () => {
   closePopup(editElementsPopup);
 });
+
+
+// Закрытие по Esc
+const closePopupByEsc = (evt) => {
+  const popup = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape' && popup) {
+    closePopup(popup);
+  }
+};
+
+// Закрытие по щелчку вне блока
+const closePopupClickSpaceAround = (evt) => {
+  const popup = document.querySelector('.popup_opened');
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(popup);
+  }
+};
