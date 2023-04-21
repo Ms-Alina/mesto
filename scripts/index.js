@@ -129,8 +129,9 @@ editElementsPopupCloseButton.addEventListener('click', () => {
 // Закрытие по Esc
 const closePopupByEsc = (evt) => {
   if (evt.key === 'Escape') {
-    if (document.querySelector('.popup_opened')) {
-      closePopup(document.querySelector('.popup_opened'));
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      closePopup(openedPopup);
     }
   }
 };
@@ -138,8 +139,6 @@ const closePopupByEsc = (evt) => {
 // Закрытие по щелчку вне блока
 const closePopupClickSpaceAround = (evt) => {
   if (evt.target.classList.contains('popup_opened')) {
-    if (document.querySelector('.popup_opened')) {
-      closePopup(document.querySelector('.popup_opened'));
-    }
+    closePopup(evt.target);
   }
 };
