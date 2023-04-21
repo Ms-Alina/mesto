@@ -1,8 +1,19 @@
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  errorPlaceSelector: '.popup__input-error-place',
+  submitButtonSelector: '.popup__button-submit',
+  inactiveButtonClass: 'popup__button-submit_type_noactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error'
+};
+
 // Добавление ошибки
 const showInputError = (config, formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
+  errorElement.classList.remove(config.errorPlaceSelector);
   errorElement.classList.add(config.errorClass);
 };
 
@@ -11,6 +22,7 @@ const hideInputError = (config, formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(config.inputErrorClass);
   errorElement.classList.remove(config.errorClass);
+  errorElement.classList.add(config.errorPlaceSelector);
   errorElement.textContent = '';
 };
 
@@ -72,14 +84,11 @@ const enableValidation = (config) => {
 
   formList.forEach((formElement) => {
     setEventListeners(config, formElement);
+
+    formElement.addEventListener('submit', () => {
+      disalbleButton(config, formElement.querySelector(config.submitButtonSelector));
+    });
   });
 };
 
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button-submit',
-  inactiveButtonClass: 'popup__button-submit_type_noactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error'
-});
+enableValidation(validationConfig);

@@ -34,9 +34,9 @@
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form name="formEditProfile" class="popup__form" novalidate>
         <input id="nameProfile-input" type="text" name="nameProfile" autocomplete="off" placeholder="Имя" required minlength="2" maxlength="40" class="popup__input popup__input_info_name">
-        <span class="popup__input-error nameProfile-input-error"></span>
+        <span class="popup__input-error popup__input-error-place nameProfile-input-error"></span>
         <input id="callingProfile-input" type="text" name="callingProfile" autocomplete="off" placeholder="Род деятельности" required minlength="2" maxlength="200" class="popup__input popup__input_info_calling">
-        <span class="popup__input-error callingProfile-input-error"></span>
+        <span class="popup__input-error popup__input-error-place callingProfile-input-error"></span>
         <button type="submit" class="popup__button-submit" disabled>Сохранить</button>
       </form>
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
@@ -47,9 +47,9 @@
       <h2 class="popup__heading">Новое место</h2>
       <form name="formAddCards" class="popup__form" novalidate>
         <input id="nameCard-input" type="text" name="nameCard" autocomplete="off" placeholder="Название" required minlength="2" maxlength="30" class="popup__input popup__input_info_heading-card">
-        <span class="popup__input-error nameCard-input-error"></span>
+        <span class="popup__input-error popup__input-error-place nameCard-input-error"></span>
         <input id="callingCard-input" type="url" name="callingCard" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
-        <span class="popup__input-error callingCard-input-error"></span>
+        <span class="popup__input-error popup__input-error-place callingCard-input-error"></span>
         <button type="submit" class="popup__button-submit" disabled>Создать</button>
       </form>
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>

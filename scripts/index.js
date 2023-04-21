@@ -9,7 +9,6 @@ const callingInput = editProfilePopup.querySelector('.popup__input_info_calling'
 const callingProfile = document.querySelector('.profile__calling');
 const editProfilePopupForm = editProfilePopup.querySelector('.popup__form');
 
-
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
 
@@ -41,7 +40,6 @@ editProfilePopupForm.addEventListener('submit', (event) => {
   closePopup(editProfilePopup);
 });
 
-
 const templateElement = document.querySelector('#template-element');
 const gridElements = document.querySelector('.elements');
 const editElementsPopup = document.querySelector('.popup_type_add-card');
@@ -52,6 +50,8 @@ const linkCard = editElementsPopup.querySelector('.popup__input_info_url-img');
 const editElementsPopupCloseButton = editElementsPopup.querySelector('.popup__close-icon');
 const bigImgPopup = document.querySelector('.popup_type_big-img');
 const bigImgPopupCloseButton = bigImgPopup.querySelector('.popup__close-icon');
+const bigImgPopupPicture = bigImgPopup.querySelector('.popup__img');
+const bigImgPopupHeadingPicture = bigImgPopup.querySelector('.popup__heading-img');
 
 const createCardElement = (cardData) => {
   const cardElement = templateElement.content
@@ -70,15 +70,12 @@ const createCardElement = (cardData) => {
   const handleDelete = () => {
     cardElement.remove();
   }
-  const handleLike = () => {
+    const handleLike = () => {
     likeButton.classList.toggle('element__like_active');
   }
 
   deleteButton.addEventListener('click', handleDelete);
   likeButton.addEventListener('click', handleLike);
-
-  const bigImgPopupPicture = bigImgPopup.querySelector('.popup__img');
-  const bigImgPopupHeadingPicture = bigImgPopup.querySelector('.popup__heading-img');
  
   cardImg.addEventListener('click', () => {
     openPopup(bigImgPopup);
@@ -129,19 +126,20 @@ editElementsPopupCloseButton.addEventListener('click', () => {
   closePopup(editElementsPopup);
 });
 
-
 // Закрытие по Esc
 const closePopupByEsc = (evt) => {
-  const popup = document.querySelector('.popup_opened');
-  if (evt.key === 'Escape' && popup) {
-    closePopup(popup);
+  if (evt.key === 'Escape') {
+    if (document.querySelector('.popup_opened')) {
+      closePopup(document.querySelector('.popup_opened'));
+    }
   }
 };
 
 // Закрытие по щелчку вне блока
 const closePopupClickSpaceAround = (evt) => {
-  const popup = document.querySelector('.popup_opened');
   if (evt.target.classList.contains('popup_opened')) {
-    closePopup(popup);
+    if (document.querySelector('.popup_opened')) {
+      closePopup(document.querySelector('.popup_opened'));
+    }
   }
 };
