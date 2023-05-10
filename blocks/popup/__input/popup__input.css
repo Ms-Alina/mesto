@@ -10,8 +10,8 @@
   color: #000;
 }
 
-.popup__input + .popup__input {
-  margin-top: 30px;
+.popup__input-error-place + .popup__input {
+  margin-top: 0;
 }
 
 @media (max-width: 709px) {

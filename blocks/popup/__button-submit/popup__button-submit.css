@@ -1,5 +1,5 @@
 .popup__button-submit {
-  margin-top: 48px;
+  margin-top: 3px;
   margin-bottom: 37px;
   width: 358px;
   min-height: 50px;
@@ -14,6 +14,8 @@
   -webkit-transition: opacity 0.6s ease;
   -o-transition: opacity 0.6s ease;
   transition: opacity 0.6s ease;
+
+
 }
 
 .popup__button-submit:hover {
@@ -22,7 +24,7 @@
 
 @media (max-width:709px) {
   .popup__button-submit {
-    margin-top: 45px;
+    margin-top: 0;
     margin-bottom: 25px;
     width: 238px;
     min-height: 46px;

@@ -1,4 +1,29 @@
 import { initialCards } from './constants.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+
+// Функция зума картинки у карточки
+const openBigImgCard = (data) => {
+  openPopup(bigImgPopup);
+  bigImgPopupPicture.setAttribute('src', data.link);
+  bigImgPopupHeadingPicture.textContent = data.name;
+  bigImgPopupPicture.setAttribute('alt', data.name);
+};
+
+// Функция добавления новой карточки
+const showNewCard = (item) => {
+  const card = new Card(item, '#template-element', openBigImgCard); // Создали экземпляр карточки
+  
+  const cardElement = card.generateCard(); // Создали карточку и вернули во вне
+  
+  // Нашли куда добавлять и добавили карточку перед первым дочерним элементом
+  document.querySelector('.elements').prepend(cardElement);
+};
+
+// Добавление новых карточек из готовых данных
+initialCards.forEach((item) => {
+  showNewCard(item);
+});
 
 const editProfileEditButton = document.querySelector('.profile__button-edit');
 const editProfilePopup = document.querySelector('.popup_type_edit-profile');
@@ -9,14 +34,15 @@ const callingInput = editProfilePopup.querySelector('.popup__input_info_calling'
 const callingProfile = document.querySelector('.profile__calling');
 const editProfilePopupForm = editProfilePopup.querySelector('.popup__form');
 
-
-const openPopup = (popup) => {
+// Открытие попапа
+export const openPopup = (popup) => {
   popup.classList.add('popup_opened');
 
   document.addEventListener('keydown', closePopupByEsc);
   document.addEventListener('mousedown', closePopupClickSpaceAround);
 };
 
+// Закрытие попапа
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
 
@@ -24,16 +50,19 @@ const closePopup = (popup) => {
   document.removeEventListener('mousedown', closePopupClickSpaceAround);
 };
 
+// Слушатель кнопки редактирования профиля
 editProfileEditButton.addEventListener('click', () => {
   openPopup(editProfilePopup);
   nameInput.value = nameProfile.textContent;
   callingInput.value = callingProfile.textContent;
 });
 
+// Слушатель кнопки закрытия попапа редактирования профиля по крестику
 editProfilePopupCloseButton.addEventListener('click', () => {
   closePopup(editProfilePopup);
 });
 
+// Слушатель отправки формы, после редактирования профиля
 editProfilePopupForm.addEventListener('submit', (event) => {
   event.preventDefault();
   nameProfile.textContent = nameInput.value;
@@ -41,9 +70,8 @@ editProfilePopupForm.addEventListener('submit', (event) => {
   closePopup(editProfilePopup);
 });
 
-
-const templateElement = document.querySelector('#template-element');
-const gridElements = document.querySelector('.elements');
+//const templateElement = document.querySelector('#template-element');
+//const gridElements = document.querySelector('.elements');
 const editElementsPopup = document.querySelector('.popup_type_add-card');
 const editElementsEditButton = document.querySelector('.profile__button-add');
 const editElementsPopupForm = editElementsPopup.querySelector('.popup__form');
@@ -52,96 +80,54 @@ const linkCard = editElementsPopup.querySelector('.popup__input_info_url-img');
 const editElementsPopupCloseButton = editElementsPopup.querySelector('.popup__close-icon');
 const bigImgPopup = document.querySelector('.popup_type_big-img');
 const bigImgPopupCloseButton = bigImgPopup.querySelector('.popup__close-icon');
+const bigImgPopupPicture = bigImgPopup.querySelector('.popup__img');
+const bigImgPopupHeadingPicture = bigImgPopup.querySelector('.popup__heading-img');
 
-const createCardElement = (cardData) => {
-  const cardElement = templateElement.content
-  .querySelector('.element')
-  .cloneNode(true);
-  
-  const cardHeading = cardElement.querySelector('.element__heading');
-  const cardImg = cardElement.querySelector('.element__img');
-
-  cardHeading.textContent = cardData.name;
-  cardImg.src = cardData.link;
-  cardImg.alt = cardData.name;
-
-  const deleteButton = cardElement.querySelector('.element__button-trash');
-  const likeButton = cardElement.querySelector('.element__like');
-  const handleDelete = () => {
-    cardElement.remove();
-  }
-  const handleLike = () => {
-    likeButton.classList.toggle('element__like_active');
-  }
-
-  deleteButton.addEventListener('click', handleDelete);
-  likeButton.addEventListener('click', handleLike);
-
-  const bigImgPopupPicture = bigImgPopup.querySelector('.popup__img');
-  const bigImgPopupHeadingPicture = bigImgPopup.querySelector('.popup__heading-img');
- 
-  cardImg.addEventListener('click', () => {
-    openPopup(bigImgPopup);
-    bigImgPopupPicture.src = cardData.link;
-    bigImgPopupHeadingPicture.textContent = cardData.name;
-    bigImgPopupPicture.alt = cardData.name;
-  });
-
-  return cardElement;
-};
-
+// Слушатель закрытия большого попапа по крестику
 bigImgPopupCloseButton.addEventListener('click', () => {
   closePopup(bigImgPopup);
 });
 
-const renderCardElement = (cardElement) => {
-  gridElements.prepend(cardElement);
-}
-
-initialCards.forEach((card) => {
-  renderCardElement(createCardElement(card));
-});
-
+// Слушатель кнопки добавления новой карточки
 editElementsEditButton.addEventListener('click', () => {
   openPopup(editElementsPopup);
 });
 
+// Добавление новой карточки из введенный данных в попап
 const addNewCard = (event) => {
   event.preventDefault();
 
   const name = headingCard.value;
   const link = linkCard.value;
 
-  const cardData = {
-    name,
-    link,
-  };
-  renderCardElement(createCardElement(cardData));
+  showNewCard({name, link});
 
   closePopup(editElementsPopup);
 
   editElementsPopupForm.reset();
 };
 
+// Слушатель формы по дабавлению новой карточки
 editElementsPopupForm.addEventListener('submit', addNewCard);
 
+// Слушатель для кнопки закрытия по крестику для формы добавления карточек
 editElementsPopupCloseButton.addEventListener('click', () => {
   closePopup(editElementsPopup);
 });
 
-
 // Закрытие по Esc
 const closePopupByEsc = (evt) => {
-  const popup = document.querySelector('.popup_opened');
-  if (evt.key === 'Escape' && popup) {
-    closePopup(popup);
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
   }
 };
 
 // Закрытие по щелчку вне блока
 const closePopupClickSpaceAround = (evt) => {
-  const popup = document.querySelector('.popup_opened');
   if (evt.target.classList.contains('popup_opened')) {
-    closePopup(popup);
+    closePopup(evt.target);
   }
 };
