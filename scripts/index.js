@@ -1,6 +1,7 @@
 import { initialCards } from './constants.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
+import { validationConfig } from './constants.js';
 
 // Функция зума картинки у карточки
 const openBigImgCard = (data) => {
@@ -131,3 +132,9 @@ const closePopupClickSpaceAround = (evt) => {
     closePopup(evt.target);
   }
 };
+
+const editProfileValidation = new FormValidator(validationConfig, editProfilePopup);
+const editElementsValidation = new FormValidator(validationConfig, editElementsPopup);
+
+editProfileValidation.enableValidation();
+editElementsValidation.enableValidation();

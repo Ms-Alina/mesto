@@ -1,17 +1,10 @@
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  errorPlaceSelector: '.popup__input-error-place',
-  submitButtonSelector: '.popup__button-submit',
-  inactiveButtonClass: 'popup__button-submit_type_noactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error'
-};
-
 export class FormValidator {
   constructor(config, formElement) { // параметы: 1 - весь объект, 2 - нужная нам форма
     this._config = config; // весь объект
     this._formElement = formElement; // форма попап
+
+    this._buttonElement = formElement.querySelector(this._config.submitButtonSelector); // кнопка сохранения
+    this._inputList = Array.from(formElement.querySelectorAll(this._config.inputSelector)); // все интупы формы
   }
 
   // Добавление ошибки
@@ -43,48 +36,45 @@ export class FormValidator {
 
   // Слушатель для всех инпутов в форме
   _setEventListeners() {
-    const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
-    const buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
+    this._toggleButtonState();
 
-    this._toggleButtonState(inputList, buttonElement);
-
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._isValid(inputElement);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState();
       });
     });
 
     this._formElement.addEventListener('submit', () => {
-      this._disalbleButton(this._formElement.querySelector(this._config.submitButtonSelector));
+      this._disalbleButton();
     });
   };
 
   // Кнопка не активна
-  _disalbleButton(buttonElement) {
-    buttonElement.setAttribute('disabled', '');
-    buttonElement.classList.add(this._config.inactiveButtonClass);
+  _disalbleButton() {
+    this._buttonElement.setAttribute('disabled', '');
+    this._buttonElement.classList.add(this._config.inactiveButtonClass);
   }
 
   // Кнопка активна
-  _enableButton(buttonElement) {
-    buttonElement.removeAttribute('disabled');
-    buttonElement.classList.remove(this._config.inactiveButtonClass);
+  _enableButton() {
+    this._buttonElement.removeAttribute('disabled');
+    this._buttonElement.classList.remove(this._config.inactiveButtonClass);
   }
 
   // Проверка невалидного поля
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     })
   }
 
   // Измененяе состояния кнопки
-  _toggleButtonState(inputList, buttonElement) {
-    if (this._hasInvalidInput(inputList)) {
-      this._disalbleButton(buttonElement);
+  _toggleButtonState() {
+    if (this._hasInvalidInput()) {
+      this._disalbleButton();
     } else {
-      this._enableButton(buttonElement);
+      this._enableButton();
     }
   }
 
@@ -93,12 +83,3 @@ export class FormValidator {
     this._setEventListeners();
   }
 }
-
-const editProfilePopup = document.querySelector('.popup_type_edit-profile');
-const editProfileValidation = new FormValidator(validationConfig, editProfilePopup);
-
-const editElementsPopup = document.querySelector('.popup_type_add-card');
-const editElementsValidation = new FormValidator(validationConfig, editElementsPopup);
-
-editProfileValidation.enableValidation();
-editElementsValidation.enableValidation();
