@@ -34,3 +34,7 @@ export const validationConfig = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error'
 };
+
+export const editProfileEditButton = document.querySelector('.profile__button-edit');
+export const gridElements = document.querySelector('.elements');
+export const editElementsEditButton = document.querySelector('.profile__button-add');

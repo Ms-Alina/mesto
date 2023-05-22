@@ -1,11 +1,11 @@
-export class Card {
-  constructor(data, templateSelector, callBigImg) {
+export default class Card {
+  constructor(data, templateSelector, handleCardClick) {
     this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._alt = data.name;
     this._templateSelector = templateSelector;
-    this._callBigImg = callBigImg;
+    this._handleCardClick = handleCardClick;
     
     this._element = this._getTemplate(); // сразу добавляем разметку
     this._imgElement = this._element.querySelector('.element__img'); // запомнили картинку карточки
@@ -46,7 +46,7 @@ export class Card {
 
     // Слушатель увеличения картинки
     this._imgElement.addEventListener('click', () => {
-      this._callBigImg(this._data);
+      this._handleCardClick(/*this._data*/);
     });
   }
 
