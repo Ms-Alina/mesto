@@ -12,6 +12,8 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 
+import './index.css';
+
 const userInfo = new UserInfo('.popup__input_info_name', '.popup__input_info_calling');
 
 const popupWithFormUserEdit = new PopupWithForm('.popup_type_edit-profile', callbackSubmitUserEdit);
