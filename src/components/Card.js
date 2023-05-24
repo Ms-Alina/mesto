@@ -46,7 +46,7 @@ export default class Card {
 
     // Слушатель увеличения картинки
     this._imgElement.addEventListener('click', () => {
-      this._handleCardClick(/*this._data*/);
+      this._handleCardClick();
     });
   }
 
