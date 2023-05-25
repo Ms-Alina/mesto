@@ -36,8 +36,10 @@ export const validationConfig = {
 };
 
 export const editProfileEditButton = document.querySelector('.profile__button-edit');
-//export const gridElements = document.querySelector('.elements');
 export const editElementsEditButton = document.querySelector('.profile__button-add');
+
+export const inputNamePopupProfile = document.querySelector('.popup__input_info_name');
+export const inputCallingPopupProfile = document.querySelector('.popup__input_info_calling');
 
 export const editProfilePopup = document.querySelector('.popup_type_edit-profile');
 export const editElementsPopup = document.querySelector('.popup_type_add-card');

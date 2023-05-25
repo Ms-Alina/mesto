@@ -3,6 +3,8 @@ import {
   validationConfig,
   editProfileEditButton,
   editElementsEditButton,
+  inputNamePopupProfile,
+  inputCallingPopupProfile,
   editProfilePopup,
   editElementsPopup
 } from '../utils/constants.js';
@@ -33,8 +35,8 @@ editProfileEditButton.addEventListener('click', () => {
   popupWithFormUserEdit.open();
 
   userInfo.getUserInfo();
-  document.querySelector('.popup__input_info_name').value = userInfo.getUserInfo().name;
-  document.querySelector('.popup__input_info_calling').value = userInfo.getUserInfo().calling;
+  inputNamePopupProfile.value = userInfo.getUserInfo().name;
+  inputCallingPopupProfile.value = userInfo.getUserInfo().calling;
 });
 
 const popupWithFormAddCards = new PopupWithForm('.popup_type_add-card', callbackSubmitAddCards);
