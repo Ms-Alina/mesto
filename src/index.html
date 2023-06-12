@@ -13,7 +13,10 @@
   <main>
     <section class="profile">
       <div class="profile__description">
-        <img src="<%=require('./images/ava.png')%>" alt="Персональная фотография" class="profile__ava">
+        <div class="profile__img-place">
+          <img src="<%=require('./images/ava.png')%>" alt="Персональная фотография" class="profile__ava">
+          <button class="profile__change-button" type="button" aria-label="Изменить аватар"></button>
+        </div>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <div role="button" aria-label="Редактировать профиль" class="profile__button-edit"></div>
@@ -32,9 +35,9 @@
     <div class="popup__container">
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form name="formEditProfile" class="popup__form" novalidate>
-        <input id="nameProfile-input" type="text" name="nameProfile" autocomplete="off" placeholder="Имя" required minlength="2" maxlength="40" class="popup__input popup__input_info_name">
+        <input id="nameProfile-input" type="text" name="name" autocomplete="off" placeholder="Имя" required minlength="2" maxlength="40" class="popup__input popup__input_info_name">
         <span class="popup__input-error popup__input-error-place nameProfile-input-error"></span>
-        <input id="callingProfile-input" type="text" name="callingProfile" autocomplete="off" placeholder="Род деятельности" required minlength="2" maxlength="200" class="popup__input popup__input_info_calling">
+        <input id="callingProfile-input" type="text" name="about" autocomplete="off" placeholder="Род деятельности" required minlength="2" maxlength="200" class="popup__input popup__input_info_calling">
         <span class="popup__input-error popup__input-error-place callingProfile-input-error"></span>
         <button type="submit" class="popup__button-submit" disabled>Сохранить</button>
       </form>
@@ -45,9 +48,9 @@
     <div class="popup__container">
       <h2 class="popup__heading">Новое место</h2>
       <form name="formAddCards" class="popup__form" novalidate>
-        <input id="nameCard-input" type="text" name="nameCard" autocomplete="off" placeholder="Название" required minlength="2" maxlength="30" class="popup__input popup__input_info_heading-card">
+        <input id="nameCard-input" type="text" name="name" autocomplete="off" placeholder="Название" required minlength="2" maxlength="30" class="popup__input popup__input_info_heading-card">
         <span class="popup__input-error popup__input-error-place nameCard-input-error"></span>
-        <input id="callingCard-input" type="url" name="callingCard" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
+        <input id="callingCard-input" type="url" name="link" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_info_url-img">
         <span class="popup__input-error popup__input-error-place callingCard-input-error"></span>
         <button type="submit" class="popup__button-submit" disabled>Создать</button>
       </form>
@@ -59,7 +62,10 @@
       <img src="#" alt="" class="element__img">
       <div class="element__description">
         <h2 class="element__heading"></h2>
-        <div role="button" aria-label="Нравится" class="element__like"></div>
+        <div class="element__like-group">
+          <div role="button" aria-label="Нравится" class="element__like"></div>
+          <p class="element__like-sum">0</p>
+        </div>
       </div>
       <div role="button" aria-label="Удалить" class="element__button-trash"></div>
     </article>
@@ -69,6 +75,26 @@
       <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
       <img src="#" alt="" class="popup__img">
       <h2 class="popup__heading-img"></h2>
+    </div>
+  </div>
+  <div class="popup popup_type_prove">
+    <div class="popup__container popup__container_type_prove">
+      <h2 class="popup__heading">Вы уверены?</h2>
+      <form name="formProve" class="popup__form" novalidate>
+        <button type="submit" aria-label="Подтвердить удаление" class="popup__button-submit popup__button-submit_type_prove">Да</button>
+      </form>
+      <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
+    </div>
+  </div>
+  <div class="popup popup_type_change-avatar">
+    <div class="popup__container popup__container_type_change-avatar">
+      <h2 class="popup__heading">Обновить аватар</h2>
+      <form name="formChangeAvatar" class="popup__form" novalidate>
+        <input id="changeAvatar-input" type="url" name="link" autocomplete="off" placeholder="Ссылка на картинку" required class="popup__input popup__input_change-avatar_url-img">
+        <span class="popup__input-error popup__input-error-place changeAvatar-input-error"></span>
+        <button type="submit" class="popup__button-submit" disabled>Сохранить</button>
+      </form>
+      <div role="button" aria-label="Закрыть окно" class="popup__close-icon"></div>
     </div>
   </div>
 </body>

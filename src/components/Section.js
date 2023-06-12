@@ -5,8 +5,8 @@ export default class Section {
     this._container = document.querySelector(selector);
   }
 
-  renderItems() {
-    this._renderedCards.forEach((item) => this._renderer(item));
+  renderItems(arr, id) {
+    arr.forEach((item) => this._renderer(item, id));
   }
 
   addItem(cardElement) { // Нашли куда добавлять и добавили карточку перед первым дочерним элементом

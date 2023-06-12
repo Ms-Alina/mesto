@@ -43,3 +43,6 @@ export const inputCallingPopupProfile = document.querySelector('.popup__input_in
 
 export const editProfilePopup = document.querySelector('.popup_type_edit-profile');
 export const editElementsPopup = document.querySelector('.popup_type_add-card');
+export const editAvatarProfile = document.querySelector('.popup_type_change-avatar');
+export const editAvatarEditButton = document.querySelector('.profile__change-button');
+export const popupProfileInputs = editProfilePopup.querySelectorAll('.popup__input');
