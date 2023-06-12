@@ -42,6 +42,6 @@
 .popup__button-submit_type_prove{margin-bottom:36px;margin-top:38px}
 .element__like-group{align-items:center;display:flex;flex-direction:column;justify-content:flex-start}
 .element__like-sum{font-size:13px;font-style:normal;line-height:1.23;margin:2px 0 0}
-.profile__change-button{background-color:rgba(0,0,0,.8);background-image:url(images/a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;background-size:26px 26px;border:none;border-radius:50%;display:none;height:120px;left:0;position:absolute;top:0;width:120px;z-index:10}
+.profile__change-button{background-color:rgba(0,0,0,.8);background-image:url(images/ae1a976ddb506239e9f0.svg);background-position:50%;background-repeat:no-repeat;background-size:26px 26px;border:none;border-radius:50%;display:none;height:120px;left:0;position:absolute;top:0;width:120px;z-index:10}
 .profile__img-place{position:relative}.profile__img-place:hover .profile__change-button{display:block}
 
