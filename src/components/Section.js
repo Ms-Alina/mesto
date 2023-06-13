@@ -1,10 +1,10 @@
 export default class Section {
-  constructor({items, renderer}, selector) {
-    this._renderedCards = items;
+  constructor({renderer}, selector) {
     this._renderer = renderer;
     this._container = document.querySelector(selector);
   }
 
+  // Метод отрисовки всех элементов
   renderItems(arr, id) {
     arr.forEach((item) => this._renderer(item, id));
   }
